@@ -19,8 +19,11 @@ namespace NuGetCredentialProvider
         [ArgDescription("If present and true, providers will not issue interactive prompts")]
         public bool NonInteractive { get; set; }
 
-        [ArgDescription("Notifies the provider that this is a retry and the credentials were rejected on a previous attempt")]
+        [ArgDescription("Always generate fresh credentials, ignoring the cache")]
         public bool IsRetry { get; set; }
+
+        [ArgDescription("Skip validating cached credentials. Expired or revoked credentials may be returned.")]
+        public bool NoValidate { get; set; }
 
         [ArgDefaultValue(LogLevel.Information)]
         [ArgDescription("Display this amount of detail in the output")]
